@@ -235,6 +235,30 @@ npm run dev
 
 <br />
 
+### Environment variables
+
+The Gemini API key powers the AI dashboard insights. Add it to `stocky-backend/.env`:
+
+```env
+GEMINI_API_KEY=your_key_here
+```
+
+Without it, the rest of the app works normally — the AI insight panel just won't generate a summary.
+
+<br />
+
+### Demo accounts
+
+The seeder creates one account per role:
+
+| Role | Email | Password |
+|:---|:---|:---|
+| Admin | `admin@stocky.com` | `password` |
+| Manager | `manager@stocky.com` | `password` |
+| Cashier | `cashier@stocky.com` | `password` |
+
+<br />
+
 ## 📁 Project Structure
 
 ```
