@@ -1,0 +1,459 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap');
+
+.app-shell {
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--color-bg);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==================================================================
+   Top navigation
+   ================================================================== */
+
+.app-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 28px;
+  background-color: color-mix(in srgb, var(--color-surface) 92%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: none;
+  transition: box-shadow 0.25s ease, border-color 0.25s ease, padding 0.2s ease;
+}
+
+/* A thin brand-gradient hairline that fades in once the page scrolls —
+   a small, expensive-feeling detail rather than a flat drop shadow. */
+.app-nav::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: linear-gradient(90deg, #6d28d9, #14b8a6, #f5c157);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.app-nav-scrolled {
+  box-shadow: 0 8px 24px -18px rgba(0, 0, 0, 0.35);
+  border-bottom-color: transparent;
+}
+
+.app-nav-scrolled::after { opacity: 0.9; }
+
+@media (max-width: 480px) {
+  .app-nav { padding: 10px 16px; }
+}
+
+/* ── Brand ──────────────────────────────────────────── */
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.brand-logo-chip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.brand-logo {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.brand-name {
+  font-family: 'Space Grotesk', var(--font-sans, sans-serif);
+  font-size: clamp(18px, 2vw, 21px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-primary, #4338ca);
+  text-rendering: optimizeLegibility;
+}
+
+@media (max-width: 380px) {
+  .brand-name { display: none; }
+}
+
+/* ── Desktop nav links ──────────────────────────────── */
+
+.nav-links { display: none; align-items: center; gap: 3px; }
+@media (min-width: 900px) { .nav-links { display: flex; } }
+
+.nav-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 9px 15px;
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  overflow: hidden;
+  transition: color 0.15s ease;
+}
+
+.nav-link:hover:not(.nav-link-active) { color: var(--link-accent, var(--color-text)); background-color: color-mix(in srgb, var(--link-accent, var(--color-text)) 8%, transparent); }
+.nav-link:hover:not(.nav-link-active) svg { color: var(--link-accent, var(--color-text)); }
+
+.nav-link-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.nav-link-content svg {
+  color: var(--color-text-faint);
+  transition: color 0.15s ease;
+}
+
+.nav-link-active { color: #ffffff !important; }
+.nav-link-active .nav-link-content svg { color: #ffffff; }
+
+.nav-pill {
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--link-accent, var(--color-primary)), color-mix(in srgb, var(--link-accent, var(--color-primary)) 65%, white 20%));
+  box-shadow: 0 6px 14px -6px color-mix(in srgb, var(--link-accent, var(--color-primary)) 55%, transparent);
+  z-index: 0;
+}
+
+/* ── Nav toolbar (right side, grouped) ──────────────── */
+
+.nav-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface-raised);
+  flex-shrink: 0;
+}
+
+.icon-btn {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background-color: transparent;
+  color: var(--color-text);
+  cursor: pointer;
+  overflow: hidden;
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+
+.icon-btn:hover { background-color: var(--color-bg); border-color: var(--color-border); transform: translateY(-1px); }
+.icon-btn-danger:hover {
+  background-color: color-mix(in srgb, var(--color-danger) 10%, transparent);
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+}
+
+.icon-swap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent-warm);
+}
+
+.nav-divider { width: 1px; height: 20px; background-color: var(--color-border); margin: 0 2px; flex-shrink: 0; }
+
+/* Hamburger — only relevant below the desktop nav breakpoint */
+
+.nav-divider-mobile,
+.hamburger-btn { display: none; }
+
+@media (max-width: 899px) {
+  .nav-divider-mobile,
+  .hamburger-btn { display: flex; }
+}
+
+/* ── User chip ──────────────────────────────────────── */
+
+.user-chip { display: none; align-items: center; gap: 8px; padding: 3px 10px 3px 3px; }
+@media (min-width: 640px) { .user-chip { display: flex; } }
+
+.user-avatar {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent-cool));
+  box-shadow: 0 0 0 2px var(--color-surface-raised), 0 0 0 3px color-mix(in srgb, var(--color-primary) 35%, transparent);
+}
+
+.user-status-dot {
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background-color: #22c55e;
+  border: 2px solid var(--color-surface-raised);
+}
+
+.user-chip-text { display: flex; flex-direction: column; line-height: 1.25; min-width: 0; }
+.user-name {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--color-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 160px;
+}
+.user-role { font-size: 10.5px; font-weight: 600; text-transform: capitalize; color: var(--color-text-faint); }
+
+/* ==================================================================
+   Mobile menu (replaces the old horizontal scroll tab bar)
+   ================================================================== */
+
+.mobile-menu {
+  overflow: hidden;
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+@media (min-width: 900px) { .mobile-menu { display: none; } }
+
+.mobile-menu-inner {
+  padding: 10px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.mobile-menu-links { display: flex; flex-direction: column; gap: 3px; }
+
+.mobile-menu-link {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 11px 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.mobile-menu-link:hover { background-color: var(--color-border-soft); }
+
+.mobile-menu-link-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-faint);
+  transition: color 0.15s ease;
+}
+
+.mobile-menu-link-active {
+  color: #fff;
+  background: linear-gradient(135deg, var(--link-accent, var(--color-primary)), color-mix(in srgb, var(--link-accent, var(--color-primary)) 65%, white 20%));
+}
+
+.mobile-menu-link-active .mobile-menu-link-icon { color: #fff; }
+
+.mobile-menu-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 14px;
+  border-top: 1px solid var(--color-border-soft);
+}
+
+/* ==================================================================
+   Main content
+   ================================================================== */
+
+.app-main {
+  flex: 1;
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding: 32px 28px 60px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 640px) {
+  .app-main { padding: 22px 16px 44px; }
+}
+
+/* ==================================================================
+   Footer
+   ================================================================== */
+
+.app-footer {
+  position: relative;
+  border-top: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  overflow: hidden;
+}
+
+/* Same brand-gradient hairline as the nav, echoed at the bottom of the
+   page so the whole shell reads as one considered piece. */
+.app-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #6d28d9, #14b8a6, #f5c157);
+  opacity: 0.7;
+}
+
+.footer-main {
+  max-width: 1280px;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 32px;
+  padding: 44px 28px 28px;
+}
+
+@media (max-width: 560px) {
+  .footer-main { grid-template-columns: 1fr; gap: 26px; padding: 32px 20px 24px; }
+}
+
+.footer-brand-col { display: flex; flex-direction: column; gap: 10px; max-width: 320px; }
+
+.footer-brand-row { display: flex; align-items: center; gap: 8px; }
+
+.footer-logo-chip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.footer-logo { width: 26px; height: 26px; object-fit: contain; flex-shrink: 0; }
+
+.footer-brand-name {
+  font-family: 'Space Grotesk', var(--font-sans, sans-serif);
+  font-size: 16.5px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-primary, #4338ca);
+  text-rendering: optimizeLegibility;
+}
+
+.footer-tagline {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.footer-status {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  margin-top: 4px;
+}
+
+.footer-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background-color: #22c55e;
+  box-shadow: 0 0 0 3px color-mix(in srgb, #22c55e 20%, transparent);
+  animation: status-breathe 2.6s ease-in-out infinite;
+}
+
+@keyframes status-breathe {
+  0%, 100% { box-shadow: 0 0 0 3px color-mix(in srgb, #22c55e 20%, transparent); }
+  50% { box-shadow: 0 0 0 5px color-mix(in srgb, #22c55e 10%, transparent); }
+}
+
+.footer-links-col { display: flex; flex-direction: column; gap: 10px; }
+
+.footer-col-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 2px;
+}
+
+.footer-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  width: fit-content;
+  transition: color 0.15s ease;
+}
+
+.footer-link:hover { color: var(--color-primary); }
+
+.footer-bottom {
+  position: relative;
+  max-width: 1280px;
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 16px 28px;
+  border-top: 1px solid var(--color-border);
+  font-size: 12px;
+  color: var(--color-text-faint);
+}
+
+@media (max-width: 640px) {
+  .footer-bottom {
+    padding: 14px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}
+
+.footer-bottom-meta { font-weight: 500; }
+
+/* ==================================================================
+   Reduced motion
+   ================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}

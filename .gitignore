@@ -1,0 +1,16 @@
+# Frontend
+stocky-frontend/node_modules/
+stocky-frontend/dist/
+stocky-frontend/.env
+
+# Backend
+stocky-backend/vendor/
+stocky-backend/.env
+stocky-backend/storage/*.key
+stocky-backend/storage/framework/cache/*
+stocky-backend/storage/framework/sessions/*
+stocky-backend/storage/framework/views/*
+stocky-backend/storage/logs/*
+stocky-backend/bootstrap/cache/*
+stocky-backend/.phpunit.result.cache
+stocky-frontend/.env.production
