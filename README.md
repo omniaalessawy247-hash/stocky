@@ -45,7 +45,7 @@ Three roles, three different applications, one shared source of truth:
 
 | Role | What they see |
 |:---|:---|
-| 🛡️ **Admin** | Everything — team management, roles, full inventory and sales visibility |
+| 🛡️ **Admin** | Everything a manager sees, plus team and role management |
 | 📊 **Manager** | Products, purchases, suppliers, inventory value, analytics dashboard |
 | 🛒 **Cashier** | A focused point-of-sale screen and their own sales history — nothing else |
 
@@ -56,6 +56,19 @@ Every one of those boundaries is enforced twice: once in the React router, and a
 <br />
 
 ## 📸 Screenshots
+
+**Dashboard — light and dark**
+
+<table>
+<tr>
+<td width="50%"><img src="docs/screenshots/12-dashboard-light.png" width="100%" /></td>
+<td width="50%"><img src="docs/screenshots/06-dashboard.png" width="100%" /></td>
+</tr>
+<tr>
+<td align="center"><sub>Light mode</sub></td>
+<td align="center"><sub>Dark mode</sub></td>
+</tr>
+</table>
 
 <table>
 <tr>
@@ -68,27 +81,27 @@ Every one of those boundaries is enforced twice: once in the React router, and a
 </tr>
 <tr>
 <td width="50%"><img src="docs/screenshots/03-receipt.png" width="100%" /></td>
-<td width="50%"><img src="docs/screenshots/06-dashboard.png" width="100%" /></td>
+<td width="50%"><img src="docs/screenshots/07-products.png" width="100%" /></td>
 </tr>
 <tr>
 <td align="center"><sub><b>Printable receipt</b></sub></td>
-<td align="center"><sub><b>Manager dashboard with AI insight</b></sub></td>
-</tr>
-<tr>
-<td width="50%"><img src="docs/screenshots/07-products.png" width="100%" /></td>
-<td width="50%"><img src="docs/screenshots/08-purchases.png" width="100%" /></td>
-</tr>
-<tr>
 <td align="center"><sub><b>Product catalog</b></sub></td>
-<td align="center"><sub><b>Purchases from suppliers</b></sub></td>
 </tr>
 <tr>
+<td width="50%"><img src="docs/screenshots/08-purchases.png" width="100%" /></td>
 <td width="50%"><img src="docs/screenshots/09-suppliers.png" width="100%" /></td>
-<td width="50%"><img src="docs/screenshots/11-team.png" width="100%" /></td>
 </tr>
 <tr>
+<td align="center"><sub><b>Purchases from suppliers</b></sub></td>
 <td align="center"><sub><b>Supplier management</b></sub></td>
-<td align="center"><sub><b>Team & role management</b></sub></td>
+</tr>
+<tr>
+<td width="50%"><img src="docs/screenshots/11-team.png" width="100%" /></td>
+<td width="50%"></td>
+</tr>
+<tr>
+<td align="center"><sub><b>Team & role management (Admin only)</b></sub></td>
+<td></td>
 </tr>
 </table>
 
