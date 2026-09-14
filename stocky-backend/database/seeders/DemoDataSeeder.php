@@ -16,19 +16,19 @@ class DemoDataSeeder extends Seeder
         // Users with roles
         $admin = User::firstOrCreate(
             ['email' => 'admin@stocky.com'],
-            ['name' => 'Admin User', 'password' => Hash::make('password')]
+            ['name' => 'Admin User', 'password' => 'password']
         );
         $admin->assignRole('admin');
 
         $manager = User::firstOrCreate(
             ['email' => 'manager@stocky.com'],
-            ['name' => 'Manager User', 'password' => Hash::make('password')]
+            ['name' => 'Manager User', 'password' => 'password']
         );
         $manager->assignRole('manager');
 
         $cashier = User::firstOrCreate(
             ['email' => 'cashier@stocky.com'],
-            ['name' => 'Cashier User', 'password' => Hash::make('password')]
+            ['name' => 'Cashier User', 'password' => 'password']
         );
         $cashier->assignRole('cashier');
 
