@@ -37,9 +37,9 @@
 
 ### ▶ Watch the demo
 
-https://github.com/user-attachments/assets/7b4580e5-e425-49d8-bfd1-c54db5c01a77
+https://github.com/user-attachments/assets/27130f19-0599-4dde-847f-9908855d8ab6
 
-<sub>Screen recording of Stocky in action</sub>
+<sub>Full walkthrough of Stocky (2 min 49 s)</sub>
 
 </div>
 
