@@ -1,10 +1,5 @@
 <div align="center">
 
-<img src="docs/screenshots/06-dashboard.png" alt="Stocky" width="100%" />
-
-<br />
-<br />
-
 <h1>Stocky</h1>
 
 <p><b>Inventory and point-of-sale system with role-based dashboards and AI-assisted reporting.</b></p>
@@ -24,12 +19,27 @@
 </p>
 
 <p>
+  <a href="#-demo">Demo</a> ·
   <a href="#-screenshots">Screenshots</a> ·
   <a href="#-architecture">Architecture</a> ·
   <a href="#-features">Features</a> ·
   <a href="#-getting-started">Getting Started</a> ·
   <a href="#-roadmap">Roadmap</a>
 </p>
+
+</div>
+
+<br />
+
+## 🎬 Demo
+
+<div align="center">
+
+### ▶ Watch the demo
+
+https://github.com/user-attachments/assets/7b4580e5-e425-49d8-bfd1-c54db5c01a77
+
+<sub>Screen recording of Stocky in action</sub>
 
 </div>
 
@@ -57,20 +67,15 @@ Every one of those boundaries is enforced twice: once in the React router, and a
 
 ## 📸 Screenshots
 
-**Dashboard — light and dark**
-
 <table>
 <tr>
 <td width="50%"><img src="docs/screenshots/12-dashboard-light.png" width="100%" /></td>
 <td width="50%"><img src="docs/screenshots/06-dashboard.png" width="100%" /></td>
 </tr>
 <tr>
-<td align="center"><sub>Light mode</sub></td>
-<td align="center"><sub>Dark mode</sub></td>
+<td align="center"><sub><b>Dashboard (light mode)</b></sub></td>
+<td align="center"><sub><b>Dashboard (dark mode)</b></sub></td>
 </tr>
-</table>
-
-<table>
 <tr>
 <td width="50%"><img src="docs/screenshots/01-login.png" width="100%" /></td>
 <td width="50%"><img src="docs/screenshots/02-pos.png" width="100%" /></td>
